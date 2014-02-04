@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" 
       xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <item
-        android:id="@+id/refresh"
-        android:title="@string/ic_refresh"
-        android:icon="@drawable/refresh"
-        android:onClick="onClickRefresh"
-        app:showAsAction="always"/>
          
      <item
         android:id="@+id/compose"
         android:title="@string/ic_compose"
         android:icon="@drawable/compose"
         android:onClick="onClickCompose"
-        app:showAsAction="always"/>
+        android:showAsAction="always"/>
      
      <item
         android:id="@+id/user_info"
         android:title="@string/ic_user_info"
         android:icon="@drawable/ic_user_info"
         android:onClick="onClickUserinfo"
-        app:showAsAction="always"/> 
+        android:showAsAction="always"/> 
      
 </menu>
