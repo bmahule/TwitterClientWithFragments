@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.codepath.apps.twitterclient.Fragment.HomeTimelineFragment;
 import com.codepath.apps.twitterclient.Fragment.MentionsFragment;
@@ -82,20 +83,24 @@ public class TimeLineActivity extends FragmentActivity implements TabListener {
 	    startActivityForResult(i, REQ_OPTIONS_OK);
 	}
 	
+	public void onClickUserImage(MenuItem mi, String username) { 
+		Toast.makeText(getApplicationContext(), "abc", Toast.LENGTH_SHORT).show();
+	    Intent i = new Intent(getApplicationContext(), UserInfoActivity.class);
+	    startActivity(i);
+	}
+	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	    if (resultCode == RESULT_OK && requestCode == REQ_OPTIONS_OK) {
 		    // refresh();
 	    }
 	}
-
-
+	
 	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction ft) {
 		// TODO Auto-generated method stub
 		
 	}
-
 
 	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {

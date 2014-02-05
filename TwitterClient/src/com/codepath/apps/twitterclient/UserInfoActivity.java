@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class UserInfoActivity extends Activity {
 	
@@ -44,16 +45,7 @@ public class UserInfoActivity extends Activity {
 		if (!userInfoFound) {
 			TwitterClientApp.getRestClient().getUserInfo(
 				    new JsonHttpResponseHandler() {
-				        @Override
-						public void onFailure(Throwable arg0, JSONArray arg1) { 
-							Log.d("DEBUG", "failed1!: " + arg0 + " " + arg1);
-						}
-	
-						@Override
-						public void onFailure(Throwable arg0, JSONObject arg1) {
-							Log.d("DEBUG", "failed2!" + arg0 + " " + arg1);    
-						}
-		 
+				    	
 						@Override  
 				        public void onSuccess(JSONObject myInfo) {
 							userInfoFound = true; 
@@ -64,7 +56,7 @@ public class UserInfoActivity extends Activity {
 				        	following.setText(user.getFriendsCount()+"following");
 				        	followers.setText(user.getFollowersCount()+"followers");
 				        	
-				        	TwitterClientApp.getRestClient().getUserTimeline(
+				        	TwitterClientApp.getRestClient().getUserTimeline(user.getScreenName(),
 				    			    new JsonHttpResponseHandler() {
 				    			        @Override
 				    					public void onFailure(Throwable arg0, JSONArray arg1) { 
