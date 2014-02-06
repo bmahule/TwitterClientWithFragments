@@ -38,13 +38,16 @@ public class TweetsAdapter extends ArrayAdapter<Tweet> {
 		ImageView ivProfile = (ImageView) convertView.findViewById(R.id.ivProfile);
 		ImageLoader.getInstance().displayImage(t.getUser().getProfileImageUrl() , ivProfile);
 		ivProfile.setTag(t.getUser().getScreenName());
+		userName = ivProfile.getTag().toString();
+		
 		ivProfile.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
+				//Toast.makeText(getContext(), userName, Toast.LENGTH_SHORT).show();
 				// TODO Auto-generated method stub
 				userName = v.getTag().toString();
-				Intent i = new Intent(v.getContext(), OtherUserActivity.class);
+				Intent i = new Intent(v.getContext(), OtherUserProfile.class);
 				i.putExtra("Username", userName);
 			    v.getContext().startActivity(i);
 			}

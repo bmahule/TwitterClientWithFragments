@@ -63,6 +63,14 @@
             android:name="com.codepath.apps.twitterclient.OtherUserActivity"
             android:label="@string/title_activity_other_user" >
         </activity>
+        <activity
+            android:name="com.codepath.apps.twitterclient.ProfileActivity"
+            android:label="@string/title_activity_profile" >
+        </activity>
+        <activity
+            android:name="com.codepath.apps.twitterclient.OtherUserProfile"
+            android:label="@string/title_activity_other_user_profile" >
+        </activity>
     </application>
 
 </manifest>

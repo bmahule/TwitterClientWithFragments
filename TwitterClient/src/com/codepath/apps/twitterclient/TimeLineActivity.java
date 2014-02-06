@@ -6,6 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.app.ActionBar;
@@ -36,6 +38,7 @@ public class TimeLineActivity extends FragmentActivity implements TabListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_time_line);
 		Log.d("DEBUG", "creating timeline activity"); 
+		getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#6E6C6C")));
 		lvTweets = (ListView) findViewById(R.id.listTweets); 
 		setupTabs();    
 	}
@@ -75,17 +78,11 @@ public class TimeLineActivity extends FragmentActivity implements TabListener {
 
 	public void onClickCompose(MenuItem mi) { 
 	    Intent i = new Intent(getApplicationContext(), PostTweetActivity.class);
-	    startActivityForResult(i, REQ_OPTIONS_OK);
+	    startActivity(i);
 	}
 	
 	public void onClickUserinfo(MenuItem mi) { 
-	    Intent i = new Intent(getApplicationContext(), UserInfoActivity.class);
-	    startActivityForResult(i, REQ_OPTIONS_OK);
-	}
-	
-	public void onClickUserImage(MenuItem mi, String username) { 
-		Toast.makeText(getApplicationContext(), "abc", Toast.LENGTH_SHORT).show();
-	    Intent i = new Intent(getApplicationContext(), UserInfoActivity.class);
+	    Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
 	    startActivity(i);
 	}
 	
@@ -108,10 +105,10 @@ public class TimeLineActivity extends FragmentActivity implements TabListener {
 		android.support.v4.app.FragmentTransaction fts = manager.beginTransaction();
 		if(tab.getTag() == "HomeTimelineFragment"){
 			// Set fragment to home time lime
-			fts.replace(R.id.frameContainer, new HomeTimelineFragment());
+			fts.replace(R.id.fragmentUserTimeline, new HomeTimelineFragment());
 		} else {
 			// Set fragment to mentions time line
-			fts.replace(R.id.frameContainer, new MentionsFragment());
+			fts.replace(R.id.fragmentUserTimeline, new MentionsFragment());
 		}
 		fts.commit();
 	}

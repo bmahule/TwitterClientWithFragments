@@ -5,7 +5,9 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.LightingColorFilter;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -31,7 +33,8 @@ public class PostTweetActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_post_tweet);		
+		setContentView(R.layout.activity_post_tweet);
+		getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#6E6C6C")));
 		btSubmit = (Button) findViewById(R.id.btSubmit);
         btSubmit.getBackground().setColorFilter(new LightingColorFilter(0xFFFFFFFF, 0xFF66B2FF));
 		imgProfile = (ImageView) findViewById(R.id.imgProfile);
